@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Профиль канала — Рефлюкс Контроль</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A1520;--panel:#0F1F2D;--accent:#01E8AB;--accent2:#29A6CB;--white:#FFF;--blue:#5BC4D6;--card:#142836;--muted:#7E99A8;--border:rgba(91,196,214,.15);--accent-grad:linear-gradient(135deg,#01E8AB,#29A6CB)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Raleway',system-ui,sans-serif;background:var(--bg);color:var(--white);font-size:16px;line-height:1.7}
+
+.hdr{position:sticky;top:0;z-index:100;background:var(--panel);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;justify-content:space-between}
+.hdr-left{display:flex;align-items:center;gap:20px}
+.logo{font-size:26px;font-weight:900;background:var(--accent-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;text-transform:uppercase}
+.hdr-title{font-size:18px;font-weight:300;color:var(--muted);border-left:1px solid var(--border);padding-left:20px}
+.hdr-badge{font-size:13px;font-weight:700;color:var(--bg);background:var(--accent-grad);padding:5px 14px;border-radius:14px}
+
+.content{padding:40px;max-width:1100px;margin:0 auto}
+
+/* sections */
+.section{margin-bottom:48px}
+.section-hdr{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--accent)}
+.section-icon{font-size:28px}
+.section-title{font-size:24px;font-weight:700}
+
+/* cards */
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px}
+.card-title{font-size:18px;font-weight:700;color:var(--accent);margin-bottom:12px}
+.card p,.card li{color:rgba(255,255,255,.85);font-size:15px;line-height:1.8}
+.card ul{list-style:none;padding:0}
+.card li{padding:4px 0;padding-left:20px;position:relative}
+.card li::before{content:"\2022";color:var(--accent);font-weight:700;position:absolute;left:0}
+
+/* hero */
+.hero{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:40px;margin-bottom:40px;text-align:center}
+.hero-name{font-size:42px;font-weight:900;background:var(--accent-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase;letter-spacing:3px;margin-bottom:8px}
+.hero-sub{font-size:20px;font-weight:300;color:var(--muted);margin-bottom:16px}
+.hero-id{display:inline-block;background:rgba(1,232,171,.1);color:var(--accent);padding:6px 18px;border-radius:20px;font-size:14px;font-weight:700;font-family:monospace;letter-spacing:1px}
+.hero-mission{font-size:17px;color:rgba(255,255,255,.85);max-width:700px;margin:20px auto 0;line-height:1.8}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pillar{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:24px;position:relative;overflow:hidden}
+.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent-grad)}
+.pillar-pct{font-size:48px;font-weight:900;color:var(--accent);opacity:.2;position:absolute;top:10px;right:20px}
+.pillar-title{font-size:18px;font-weight:700;margin-bottom:12px}
+.pillar-items{list-style:none;padding:0}
+.pillar-items li{font-size:14px;color:rgba(255,255,255,.75);padding:3px 0 3px 16px;position:relative}
+.pillar-items li::before{content:"\2013";color:var(--accent);position:absolute;left:0}
+
+/* pain points */
+.pain{background:rgba(0,0,0,.12);border-radius:8px;padding:14px 18px;margin-bottom:10px;border-left:3px solid var(--accent2)}
+.pain-q{font-size:15px;font-style:italic;color:rgba(255,255,255,.8);margin-bottom:4px}
+.pain-a{font-size:13px;color:var(--muted)}
+
+/* kpi grid */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.kpi{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center}
+.kpi-val{font-size:32px;font-weight:800;color:var(--accent);margin-bottom:4px}
+.kpi-lbl{font-size:13px;color:var(--muted);font-weight:300}
+
+/* patterns */
+.pattern{display:flex;gap:16px;align-items:flex-start;margin-bottom:16px}
+.pattern-icon{width:40px;height:40px;background:rgba(1,232,171,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.pattern-text{flex:1}
+.pattern-title{font-size:15px;font-weight:700;margin-bottom:4px}
+.pattern-desc{font-size:14px;color:rgba(255,255,255,.7)}
+
+/* brand */
+.brand-colors{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+.brand-swatch{display:flex;flex-direction:column;align-items:center;gap:6px}
+.brand-swatch-box{width:80px;height:50px;border-radius:8px;border:1px solid var(--border)}
+.brand-swatch-hex{font-size:11px;font-family:monospace;color:var(--muted)}
+
+.footer{text-align:center;padding:48px 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<div class="hdr"><div class="hdr-left"><div class="logo">Рефлюкс Контроль</div><div class="hdr-title">Профиль канала</div></div><div class="hdr-badge">YTRF</div></div>
+
+<div class="content">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-name">Рефлюкс Контроль</div>
+  <div class="hero-sub">Reflux Control</div>
+  <div class="hero-id">Channel ID: YTRF</div>
+  <div class="hero-mission">Образовательный YouTube-канал о гастроэзофагеальной рефлюксной болезни (ГЭРБ) — для пациентов, их семей и медицинских специалистов. Поддержка проекта «Рефлюкс Контроль» (ООО «Технодело»): российский имплантируемый медицинский аппарат для хирургического лечения ГЭРБ. Цель: стать #1 русскоязычным ресурсом о лечении ГЭРБ.</div>
+</div>
+
+<!-- АУДИТОРИЯ -->
+<div class="section">
+  <div class="section-hdr"><span class="section-icon">&#x1F465;</span><span class="section-title">Целевая аудитория</span></div>
+
+  <div class="card">
+    <div class="card-title">География</div>
+    <p>Россия, СНГ (Беларусь, Казахстан, Украина), русскоязычная диаспора по всему миру</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Кто смотрит</div>
+    <ul>
+      <li>Пациенты с хроническим ГЭРБ (изжога, регургитация, ухудшение качества жизни)</li>
+      <li>Люди, чьи симптомы не контролируются ИПП (омепразол, нексиум и др.)</li>
+      <li>Пациенты, которым рекомендована фундопликация — исследуют варианты</li>
+      <li>Родственники, ищущие информацию о лечении близких</li>
+      <li>Терапевты, гастроэнтерологи, хирурги — интерес к новым малоинвазивным подходам</li>
+      <li>Исследователи в области российских медицинских устройств</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Боли пациентов</div>
+    <div class="pain"><div class="pain-q">«Я пью таблетки годами — они не помогают до конца. Что ещё можно сделать?»</div><div class="pain-a">Неполный эффект ИПП</div></div>
+    <div class="pain"><div class="pain-q">«Мне предложили фундопликацию — это опасно? Какие побочные эффекты?»</div><div class="pain-a">Страх перед стандартной операцией</div></div>
+    <div class="pain"><div class="pain-q">«Что такое рефлюкс и почему у меня изжога каждую ночь?»</div><div class="pain-a">Базовое образование</div></div>
+    <div class="pain"><div class="pain-q">«Можно ли вылечить рефлюкс без пожизненных таблеток?»</div><div class="pain-a">Поиск постоянного решения</div></div>
+    <div class="pain"><div class="pain-q">«Есть ли в России альтернатива LINX и зарубежным устройствам?»</div><div class="pain-a">Поиск российского решения</div></div>
+    <div class="pain"><div class="pain-q">«Каков риск рака пищевода при нелечённом рефлюксе?»</div><div class="pain-a">Онкориски как мотивация к действию</div></div>
+  </div>
+</div>
+
+<!-- ФОРМАТ -->
+<div class="section">
+  <div class="section-hdr"><span class="section-icon">&#x1F3AC;</span><span class="section-title">Формат контента</span></div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div class="card">
+      <div class="card-title">Типы видео</div>
+      <ul>
+        <li>Образовательные разборы (animated + talking head)</li>
+        <li>Интервью с пациентами</li>
+        <li>Q&A с врачами</li>
+        <li>Пошаговые разборы процедур</li>
+        <li>Shorts: симптомы, факты, мифы (1-3 мин)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Параметры</div>
+      <ul>
+        <li><strong>Хронометраж:</strong> 8-20 мин (образовательные), 30-60 мин (интервью)</li>
+        <li><strong>Спикеры:</strong> 1 (host/врач) или 2 (host + эксперт/пациент)</li>
+        <li><strong>Язык:</strong> RU (основной), EN субтитры для врачей</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- СТИЛЬ -->
+<div class="section">
+  <div class="section-hdr"><span class="section-icon">&#x1F3A8;</span><span class="section-title">Стиль и тон</span></div>
+
+  <div class="card">
+    <ul>
+      <li><strong>Подача:</strong> Простой язык без жаргона — объясняем как другу-врачу, не как профессор на лекции. Для врачей — уважительно, с данными и ссылками на исследования</li>
+      <li><strong>Темп монтажа:</strong> Средний — достаточно медленный для усвоения сложной информации; достаточно динамичный для удержания внимания</li>
+      <li><strong>B-Roll:</strong> Медицинская анимация (механизм рефлюкса, работа сфинктера, установка импланта), реальные пациенты до/после, интерьеры клиник, эндоскопические изображения, инфографика</li>
+    </ul>
+  </div>
+</div>
+
+<!-- КОНТЕНТ-СТОЛПЫ -->
+<div class="section">
+  <div class="section-hdr"><span class="section-icon">&#x1F4CA;</span><span class="section-title">Контент-столпы</span></div>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-pct">35%</div>
+      <div class="pillar-title">1. Понять болезнь</div>
+      <ul class="pillar-items">
+        <li>Что такое ГЭРБ: анатомия, сфинктер, диафрагма</li>
+        <li>Три компонента антирефлюксного барьера</li>
+        <li>Грыжа пищеводного отверстия диафрагмы</li>
+        <li>Симптомы: изжога, кашель, осиплость, боль</li>
+        <li>Прогрессия: эзофагит → Барретт → рак</li>
+        <li>ГЭРБ и качество жизни</li>
+        <li>Мифы о рефлюксе: 10 заблуждений</li>
+      </ul>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-pct">30%</div>
+      <div class="pillar-title">2. Варианты лечения</div>
+      <ul class="pillar-items">
+        <li>ИПП: как работают, побочные эффекты</li>
+        <li>Фундопликация: плюсы, минусы, дисфагия 29%</li>
+        <li>LINX: что это, почему в России недоступен</li>
+        <li>Новый подход: Рефлюкс Контроль / Рефлюкс Контроль</li>
+        <li>Сравнение методов: таблица «что выбрать»</li>
+        <li>Когда таблеток уже недостаточно</li>
+      </ul>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-pct">20%</div>
+      <div class="pillar-title">3. Истории пациентов</div>
+      <ul class="pillar-items">
+        <li>«10 лет на омепразоле — я не знал, что можно иначе»</li>
+        <li>Интервью до и после операции</li>
+        <li>«Мне было 35 и нашли предрак пищевода»</li>
+        <li>Как рефлюкс мешал жить: работа, сон</li>
+        <li>Вопросы пациентов хирургу в прямом эфире</li>
+      </ul>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-pct">15%</div>
+      <div class="pillar-title">4. Для врачей</div>
+      <ul class="pillar-items">
+        <li>5-летние данные Рефлюкс Контроль (Surgical Endoscopy 2025)</li>
+        <li>Три компонента барьера: новые данные AFS</li>
+        <li>Рефлюкс Контроль vs Nissen: pH-метрия, GERD-HRQL</li>
+        <li>Российский аналог: где сейчас и куда</li>
+        <li>Протокол отбора пациентов</li>
+        <li>Лапароскопическая техника Форселля</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- УНИКАЛЬНЫЕ ПАТТЕРНЫ -->
+<div class="section">
+  <div class="section-hdr"><span class="section-icon">&#x2728;</span><span class="section-title">Уникальные паттерны</span></div>
+
+  <div class="card">
+    <div class="pattern"><div class="pattern-icon">&#x1F4DA;</div><div class="pattern-text"><div class="pattern-title">Образование как доверие</div><div class="pattern-desc">Зритель, посмотревший 3-4 ролика, понимает свой диагноз лучше, чем после 10-минутного приёма у врача — это создаёт лояльность к каналу и продукту</div></div></div>
+    <div class="pattern"><div class="pattern-icon">&#x1F30D;</div><div class="pattern-text"><div class="pattern-title">Российский взгляд на мировую проблему</div><div class="pattern-desc">Международный контекст (Implantica, FDA), адаптированный под реалии российской медицины и доступность</div></div></div>
+    <div class="pattern"><div class="pattern-icon">&#x1F4F7;</div><div class="pattern-text"><div class="pattern-title">До/После как формат</div><div class="pattern-desc">Истории пациентов с конкретными симптомами, продолжительностью болезни и результатом — самый убедительный контент</div></div></div>
+    <div class="pattern"><div class="pattern-icon">&#x1F468;&#x200D;&#x2695;&#xFE0F;</div><div class="pattern-text"><div class="pattern-title">Врачи как эксперты, а не рекламщики</div><div class="pattern-desc">Хирурги, гастроэнтерологи объясняют честно — включая риски и ограничения</div></div></div>
+    <div class="pattern"><div class="pattern-icon">&#x1FA7A;</div><div class="pattern-text"><div class="pattern-title">Демистификация операции</div><div class="pattern-desc">Серия «Как проходит операция» снимает тревогу и увеличивает конверсию в обращение</div></div></div>
+    <div class="pattern"><div class="pattern-icon">&#x1F4C8;</div><div class="pattern-text"><div class="pattern-title">Клинические данные простым языком</div><div class="pattern-desc">97.9% без ИПП, 90% улучшение качества жизни за 5 лет — переводим в понятные факты</div></div></div>
+    <div class="pattern"><div class="pattern-icon">&#x26A0;&#xFE0F;</div><div class="pattern-text"><div class="pattern-title">Мифы о рефлюксе</div><div class="pattern-desc">Формат разбора заблуждений высококонверсионен в поиске: «рефлюкс от соды», «изжога — это нормально»</div></div></div>
+  </div>
+</div>
+
+<!-- KPI -->
+<div class="section">
+  <div class="section-hdr"><span class="section-icon">&#x1F3AF;</span><span class="section-title">KPI на год</span></div>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-val">5 000+</div><div class="kpi-lbl">Подписчики</div></div>
+    <div class="kpi"><div class="kpi-val">150K+</div><div class="kpi-lbl">Просмотры</div></div>
+    <div class="kpi"><div class="kpi-val">30K+</div><div class="kpi-lbl">Лучший ролик</div></div>
+    <div class="kpi"><div class="kpi-val">2+</div><div class="kpi-lbl">Ролика до обращения</div></div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <div class="card-title">Бизнес-результат</div>
+    <p>Входящие обращения от пациентов и партнёрских клиник, рост узнаваемости проекта «Рефлюкс Контроль» в медицинском сообществе России. Зрители, посмотревшие 2+ ролика, переходят на сайт и заполняют форму обратной связи.</p>
+  </div>
+</div>
+
+<!-- ФИРМЕННЫЙ СТИЛЬ -->
+<div class="section">
+  <div class="section-hdr"><span class="section-icon">&#x1F3A8;</span><span class="section-title">Фирменный стиль</span></div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div class="card">
+      <div class="card-title">Цвета</div>
+      <div class="brand-colors">
+        <div class="brand-swatch"><div class="brand-swatch-box" style="background:linear-gradient(135deg,#01E8AB,#29A6CB)"></div><div class="brand-swatch-hex">Градиент</div></div>
+        <div class="brand-swatch"><div class="brand-swatch-box" style="background:#01E8AB"></div><div class="brand-swatch-hex">#01E8AB</div></div>
+        <div class="brand-swatch"><div class="brand-swatch-box" style="background:#29A6CB"></div><div class="brand-swatch-hex">#29A6CB</div></div>
+        <div class="brand-swatch"><div class="brand-swatch-box" style="background:#0A1520"></div><div class="brand-swatch-hex">#0A1520</div></div>
+        <div class="brand-swatch"><div class="brand-swatch-box" style="background:#FFFFFF"></div><div class="brand-swatch-hex">#FFFFFF</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Шрифт</div>
+      <p style="font-size:28px;font-weight:900;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px">Raleway</p>
+      <p style="font-size:14px;color:var(--muted)">Variable weight: 300-900<br>Google Fonts (бесплатный)<br>Файлы: YTRF_D../fonts/</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <div class="card-title">Логотипы</div>
+    <p>SVG и PNG варианты в папке <code style="background:var(--card);padding:2px 8px;border-radius:4px;font-size:14px">YTRF_D../logos/</code></p>
+    <ul>
+      <li><strong>Основной</strong> — горизонтальный с текстом (цвет, белый, чёрный, инвертированный)</li>
+      <li><strong>Знак</strong> — иконка/монограмма</li>
+      <li><strong>Расширенный</strong> — полный горизонтальный с доп. элементами</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">Профиль канала YTRF v1.0 &middot; Рефлюкс Контроль &middot; Технодело</div>
+
+</body>
+</html>

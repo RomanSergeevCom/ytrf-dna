@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Рефлюкс Контроль — DNA</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A1520;--panel:#0F1F2D;--accent:#01E8AB;--accent2:#29A6CB;--white:#FFF;--blue:#5BC4D6;--card:#142836;--muted:#7E99A8;--border:rgba(91,196,214,.15);--accent-grad:linear-gradient(135deg,#01E8AB,#29A6CB)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Raleway',system-ui,sans-serif;background:var(--bg);color:var(--white);min-height:100vh;display:flex;align-items:center;justify-content:center}
+.wrap{text-align:center;padding:40px}
+.logo{font-size:48px;font-weight:900;background:var(--accent-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.sub{font-size:20px;font-weight:300;color:var(--muted);margin-bottom:48px}
+.cards{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:32px 40px;text-decoration:none;color:var(--white);transition:.2s;min-width:260px}
+.card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 8px 32px rgba(1,232,171,.15)}
+.card-icon{font-size:40px;margin-bottom:16px}
+.card-title{font-size:20px;font-weight:700;margin-bottom:8px}
+.card-desc{font-size:14px;color:var(--muted);font-weight:300;line-height:1.6}
+.footer{margin-top:48px;font-size:13px;color:var(--muted)}
+.footer a{color:var(--blue);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">Рефлюкс Контроль</div>
+  <div class="sub">YTRF &middot; Channel DNA</div>
+  <div class="cards">
+    <a class="card" href="screens/">
+      <div class="card-icon">&#x1F3AC;</div>
+      <div class="card-title">Каталог экранов</div>
+      <div class="card-desc">22 экранных типа<br>Цвета, шрифты, логотипы<br>Гайдлайн для монтажа</div>
+    </a>
+    <a class="card" href="channel/">
+      <div class="card-icon">&#x1F4CB;</div>
+      <div class="card-title">Профиль канала</div>
+      <div class="card-desc">Аудитория, контент-столпы<br>Стиль и тон, KPI<br>Фирменный стиль</div>
+    </a>
+    <a class="card" href="fonts/">
+      <div class="card-icon">&#x1F524;</div>
+      <div class="card-title">Шрифты</div>
+      <div class="card-desc">Raleway Variable<br>Regular + Italic<br>TTF для скачивания</div>
+    </a>
+    <a class="card" href="logos/">
+      <div class="card-icon">&#x1F3A8;</div>
+      <div class="card-title">Логотипы</div>
+      <div class="card-desc">SVG + PNG<br>15 вариантов<br>Цвет / Белый / Чёрный</div>
+    </a>
+  </div>
+  <div class="footer">Технодело &middot; YTRF Channel DNA</div>
+</div>
+</body>
+</html>
