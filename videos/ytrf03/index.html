@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>YTRF03 — Ревью монтажа · Андрей Киприн · Эндоскопия</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A1520;--panel:#0F1F2D;--accent:#01E8AB;--accent2:#29A6CB;--white:#FFF;--blue:#5BC4D6;--card:#142836;--muted:#7E99A8;--border:rgba(91,196,214,.15);--accent-grad:linear-gradient(135deg,#01E8AB,#29A6CB);
+  --ins:#01E8AB;--cut:#FF6B6B;--rep:#FFB454;--move:#C48CFF;--title:#5BC4D6}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Raleway',system-ui,sans-serif;background:var(--bg);color:var(--white);font-size:15px;line-height:1.65}
+
+/* ── HDR ── */
+.hdr{position:sticky;top:0;z-index:100;background:var(--panel);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.hdr-left{display:flex;align-items:center;gap:20px}
+.logo{font-size:26px;font-weight:900;background:var(--accent-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;text-transform:uppercase}
+.hdr-title{font-size:18px;font-weight:300;color:var(--muted);border-left:1px solid var(--border);padding-left:20px}
+.hdr-right{text-align:right;font-size:12px;color:var(--white);font-weight:300;line-height:1.6}
+.breadcrumb{padding:14px 40px;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted)}
+.breadcrumb a{color:var(--muted);text-decoration:none}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb .sep{margin:0 8px;color:var(--border)}
+.breadcrumb .cur{color:var(--white)}
+
+/* ── PRODUCER BAR ── */
+.pbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px}
+.pbar-left{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pbar-left .who{color:var(--muted)}
+.pbar-left .who b{color:var(--white);font-weight:700}
+.pbar-right{display:flex;gap:14px;flex-wrap:wrap}
+.pbar-right a{color:var(--accent);text-decoration:none;font-weight:600}
+.pbar-right a:hover{color:var(--white)}
+
+/* ── CONTENT ── */
+.content{padding:40px;max-width:1200px;margin:0 auto}
+
+/* ── HERO ── */
+.hero{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:32px;margin-bottom:32px;display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center}
+.hero-poster{aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:#000 center/cover no-repeat;position:relative}
+.hero-poster img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-poster::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,21,32,.85));pointer-events:none}
+.hero-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2}
+.hero-play a{width:78px;height:78px;border-radius:50%;background:var(--accent-grad);display:flex;align-items:center;justify-content:center;transition:transform .2s;cursor:pointer;text-decoration:none}
+.hero-play a:hover{transform:scale(1.08)}
+.hero-play svg{width:30px;height:30px;fill:var(--bg);margin-left:4px}
+.hero-meta{position:absolute;left:16px;bottom:14px;z-index:2;font-size:13px;color:rgba(255,255,255,.9);display:flex;gap:12px}
+.hero-meta span{background:rgba(0,0,0,.55);padding:4px 10px;border-radius:6px;backdrop-filter:blur(4px)}
+.hero-right h1{font-size:30px;font-weight:800;line-height:1.2;margin-bottom:10px;letter-spacing:-.01em}
+.hero-right .sub{color:var(--muted);font-size:15px;margin-bottom:16px}
+.hero-id{display:inline-block;background:rgba(1,232,171,.1);color:var(--accent);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;font-family:monospace;letter-spacing:1px;margin-bottom:14px}
+.hero-desc{font-size:14.5px;color:rgba(255,255,255,.85);line-height:1.7}
+.hero-btns{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;transition:.2s;border:1px solid transparent}
+.btn-primary{background:var(--accent-grad);color:var(--bg)}
+.btn-primary:hover{opacity:.85}
+.btn-ghost{background:transparent;color:var(--white);border-color:var(--border)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── SECTIONS ── */
+.section{margin-bottom:44px}
+.section-hdr{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:10px;border-bottom:2px solid var(--accent)}
+.section-title{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.section-sub{font-size:13px;color:var(--muted);font-weight:400;margin-left:auto}
+
+/* ── TL;DR ── */
+.tldr{background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:20px 24px}
+.tldr ol{padding-left:22px;margin:0}
+.tldr li{margin:8px 0;color:rgba(255,255,255,.85)}
+.tldr li b{color:var(--accent)}
+
+/* ── PILLARS ── */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:10px}
+.pl{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px}
+.pl-h{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.pl-pct{font-size:28px;font-weight:800;margin-bottom:4px}
+.pl-bad .pl-pct{color:var(--cut)}
+.pl-warn .pl-pct{color:var(--rep)}
+.pl-ok .pl-pct{color:var(--ins)}
+.pl-note{font-size:11.5px;color:var(--muted);line-height:1.5}
+
+/* ── OPERATIONS TABLE ── */
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.legend span{padding:4px 10px;border-radius:10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.legend .i{background:rgba(1,232,171,.15);color:var(--ins)}
+.legend .c{background:rgba(255,107,107,.15);color:var(--cut)}
+.legend .r{background:rgba(255,180,84,.15);color:var(--rep)}
+.legend .m{background:rgba(196,140,255,.15);color:var(--move)}
+.legend .t{background:rgba(91,196,214,.15);color:var(--title)}
+
+.ops{background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.ops-row{display:grid;grid-template-columns:44px 110px 80px 1fr 180px;gap:14px;padding:14px 18px;border-bottom:1px solid var(--border);align-items:start}
+.ops-row:last-child{border-bottom:none}
+.ops-row.head{background:var(--card);font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:12px 18px}
+.ops-row .n{font-family:monospace;color:var(--muted);text-align:center}
+.ops-row .tc{font-family:monospace;color:var(--accent);font-size:13px;white-space:nowrap}
+.pill{display:inline-block;padding:3px 9px;border-radius:10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.p-i{background:rgba(1,232,171,.15);color:var(--ins)}
+.p-c{background:rgba(255,107,107,.15);color:var(--cut)}
+.p-r{background:rgba(255,180,84,.15);color:var(--rep)}
+.p-m{background:rgba(196,140,255,.15);color:var(--move)}
+.p-t{background:rgba(91,196,214,.15);color:var(--title)}
+.ops-row .what{font-size:13.5px;color:rgba(255,255,255,.88);line-height:1.55}
+.ops-row .what .note{color:var(--muted);font-size:12px;margin-top:4px;display:block}
+.ops-row .what q{display:block;margin-top:6px;padding:6px 10px;background:rgba(0,0,0,.25);border-radius:5px;border-left:2px solid var(--border);color:rgba(255,255,255,.88);font-style:italic;font-size:12.5px}
+.ops-row .what q::before,.ops-row .what q::after{content:'"'}
+.ops-row .src{font-family:monospace;font-size:12px;color:rgba(255,255,255,.85);line-height:1.5}
+.ops-row .src b{color:var(--accent);display:block;margin-bottom:2px}
+.ops-row.pr0{border-left:3px solid var(--cut)}
+.ops-row.pr1{border-left:3px solid var(--rep)}
+.ops-row.pr2{border-left:3px solid var(--border)}
+
+/* ── CARDS ── */
+.card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin-bottom:14px}
+.card h4{font-size:15px;font-weight:700;color:var(--accent);margin-bottom:6px}
+.card p{color:rgba(255,255,255,.85);font-size:14px;line-height:1.7}
+.card code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:12.5px;color:var(--blue);font-family:monospace}
+
+/* ── SOURCE POOL ── */
+.sp{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sp-item{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:14px 16px}
+.sp-item .f{font-family:monospace;color:var(--accent);font-size:13px;font-weight:700;margin-bottom:4px}
+.sp-item .d{font-size:11.5px;color:var(--muted);margin-bottom:6px}
+.sp-item .t{font-family:monospace;font-size:11.5px;color:rgba(255,255,255,.8);line-height:1.5}
+
+/* ── TITLE CARDS ── */
+.tcs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.tcard{background:linear-gradient(135deg,rgba(1,232,171,.08),rgba(41,166,203,.05));border:1px solid rgba(1,232,171,.25);border-radius:10px;padding:20px;text-align:center;aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:center;position:relative}
+.tcard::before{content:'TITLE';position:absolute;top:10px;left:14px;font-size:10px;font-weight:700;color:var(--accent);letter-spacing:.08em;opacity:.6}
+.tcard-t{font-size:17px;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1.35}
+.tcard-s{font-size:12.5px;color:var(--muted);line-height:1.5}
+
+/* ── WARN ── */
+.warn-box{background:rgba(255,180,84,.08);border-left:3px solid var(--rep);padding:14px 18px;border-radius:6px;margin:14px 0;font-size:13.5px;color:rgba(255,255,255,.85)}
+.warn-box b{color:var(--rep)}
+
+/* ── FOOTER ── */
+.footer{text-align:center;padding:48px 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--border)}
+.footer-contacts{margin-top:14px;font-size:13px}
+.footer-contacts a{color:var(--accent);text-decoration:none;margin:0 8px;font-weight:600}
+.footer-contacts a:hover{color:var(--white)}
+.footer-name{color:var(--white);font-weight:700}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .ops-row{grid-template-columns:28px 80px 60px 1fr;gap:8px;font-size:12px}
+  .ops-row .src{grid-column:1 / -1;padding-top:6px;border-top:1px dashed var(--border);margin-top:6px}
+  .pillars{grid-template-columns:repeat(2,1fr)}
+  .sp,.tcs{grid-template-columns:1fr}
+  .hdr,.pbar,.breadcrumb,.content,.footer{padding-left:20px;padding-right:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-left">
+    <div class="logo">Рефлюкс Контроль</div>
+    <div class="hdr-title">Ревью монтажа</div>
+  </div>
+  <div class="hdr-right">
+    v1.0 &middot; <span id="hdr-date"></span> Dubai (GMT+4)<br>
+    powered by <a href="https://rya.ae/" target="_blank" style="color:var(--white);font-weight:900;font-size:14px;text-decoration:none">RYA.AE</a>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="../../">YTRF Guideline</a>
+  <span class="sep">›</span>
+  <a href="../">Ревью видео</a>
+  <span class="sep">›</span>
+  <span class="cur">YTRF03 — Андрей Киприн · Эндоскопия</span>
+</div>
+
+<!-- PRODUCER BAR -->
+<div class="pbar">
+  <div class="pbar-left">
+    <span class="who"><b>Продюсер:</b> Роман Сергеев · R.Y.A Media Lab FZE</span>
+  </div>
+  <div class="pbar-right">
+    <a href="https://t.me/romansergeev" target="_blank">Telegram</a>
+    <a href="https://wa.me/971569399953" target="_blank">WhatsApp</a>
+    <a href="mailto:rs@rya.ae">rs@rya.ae</a>
+    <a href="https://rya.ae/" target="_blank">rya.ae</a>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-poster">
+    <img src="poster.jpg" alt="YTRF03 Andrey Kiprin Endoscopy" loading="lazy">
+    <div class="hero-play">
+      <a href="YTRF03_Andrey_Kiprin_Endoscopy.mp4" title="Открыть видео">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </a>
+    </div>
+    <div class="hero-meta">
+      <span>11:30</span>
+      <span>Russian</span>
+      <span>YTRF03</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-id">YTRF03 · Review</div>
+    <h1>Андрей Киприн — эндоскопия при ГЭРБ</h1>
+    <div class="sub">Рекомендации по пересборке финального монтажа · без досъёмки и без закадрового голоса</div>
+    <div class="hero-desc">
+      Ревью готового монтажа: как из отснятого интервью собрать ролик, который попадает в DNA канала «Рефлюкс Контроль» — образование о ГЭРБ для пациентов, а не промо оборудования. Все операции ниже выполняются пересборкой существующего материала.
+    </div>
+    <div class="hero-btns">
+      <a class="btn btn-primary" href="YTRF03_Andrey_Kiprin_Endoscopy.mp4">Открыть видео</a>
+      <a class="btn btn-ghost" href="#ops">К операциям</a>
+      <a class="btn btn-ghost" href="YTRF03_review_transcript.json">Транскрипт JSON</a>
+    </div>
+  </div>
+</div>
+
+<!-- TL;DR -->
+<div class="section">
+  <div class="section-hdr"><span class="section-title">TL;DR — главное</span></div>
+  <div class="tldr">
+    <ol>
+      <li><b>Ценность для ЦА вместо промо оборудования.</b> Канал — про ГЭРБ и путь пациента, а не про модель эндоскопа. Все упоминания бренда и B2B-блоки уходят, остаётся то, что важно зрителю.</li>
+      <li><b>Новый hook из существующего материала.</b> В интервью Андрей Киприн сам проговорил и страх пациентов, и статистику «каждый четвёртый», и pathway через гастроэнтеролога — эти куски не попали в финал. Берём их.</li>
+      <li><b>Связка с основным продуктом канала — через текстовый титр.</b> Упоминание «Рефлюкс Контроль» идёт на экране как карточка, не в озвучке.</li>
+      <li><b>Outro без закадрового голоса.</b> CTA-титры поверх существующего B-roll — три простых карточки с призывом к действию.</li>
+      <li><b>Целевая длительность после правок ≈ 12:30.</b> Без новой озвучки и без изменения палитры.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<div class="section">
+  <div class="section-hdr"><span class="section-title">Баланс по pillar'ам YTRF</span><span class="section-sub">Таргет DNA vs факт в текущем монтаже</span></div>
+  <div class="pillars">
+    <div class="pl pl-bad"><div class="pl-h">Понять болезнь</div><div class="pl-pct">5%</div><div class="pl-note">Таргет 35%. Рефлюкс как диагноз не раскрыт.</div></div>
+    <div class="pl pl-warn"><div class="pl-h">Варианты лечения</div><div class="pl-pct">8%</div><div class="pl-note">Таргет 30%. «Рефлюкс Контроль» не упомянут.</div></div>
+    <div class="pl pl-bad"><div class="pl-h">Истории пациентов</div><div class="pl-pct">0%</div><div class="pl-note">Таргет 20%. Нет ни одного до/после.</div></div>
+    <div class="pl pl-warn"><div class="pl-h">Техника / для врачей</div><div class="pl-pct">70%</div><div class="pl-note">Таргет 15%. Перекос в B2B.</div></div>
+  </div>
+</div>
+
+<!-- OPERATIONS -->
+<div class="section" id="ops">
+  <div class="section-hdr"><span class="section-title">ТЗ на монтаж</span><span class="section-sub">операции сверху вниз по таймлайну</span></div>
+  <div class="legend">
+    <span class="i">INS · вставить</span>
+    <span class="r">REP · заменить</span>
+    <span class="c">CUT · вырезать</span>
+    <span class="m">MOVE · перенести</span>
+    <span class="t">TITLE · титр</span>
+  </div>
+
+  <div class="ops">
+    <div class="ops-row head">
+      <div>#</div><div>TC финал</div><div>Действие</div><div>Что делать</div><div>Source</div>
+    </div>
+
+    <div class="ops-row pr0">
+      <div class="n">1</div>
+      <div class="tc">00:00–00:12</div>
+      <div><span class="pill p-c">CUT</span></div>
+      <div class="what">Удалить провокацию про госклиники.
+        <q>Государственные клиники, они ни черта не делают…</q>
+        <span class="note">Отталкивает пациентов и врачей.</span></div>
+      <div class="src">—</div>
+    </div>
+
+    <div class="ops-row pr0">
+      <div class="n">2</div>
+      <div class="tc">00:00 (новый start)</div>
+      <div><span class="pill p-i">INS</span></div>
+      <div class="what">HOOK часть 1 — страх пациентов.
+        <q>Пациенты приходят поздно на обследование. Они боятся, опасаются. У них остаются воспоминания прежней медицины, когда оборудование не было настолько тонким. Они откладывают посещение врача на последний момент.</q>
+        <span class="note">Обрезать до ~20 сек: середина цитаты без повторов.</span></div>
+      <div class="src"><b>RYA-ZVE1-1377.MP4</b>28:24–29:30<br>→ ~20 сек</div>
+    </div>
+
+    <div class="ops-row pr0">
+      <div class="n">3</div>
+      <div class="tc">~00:20</div>
+      <div><span class="pill p-i">INS</span></div>
+      <div class="what">HOOK часть 2 — масштаб.
+        <q>Каждый четвёртый пациент имеет проблему с ЖКТ. Это может быть связано с неправильным питанием, ожирением, либо с грыжей пищеводного отверстия.</q>
+        <span class="note">«Грыжа пищеводного отверстия» — прямая связь с рефлюксом.</span></div>
+      <div class="src"><b>RYA-ZVE1-1377.MP4</b>26:22–26:44<br>→ ~20 сек</div>
+    </div>
+
+    <div class="ops-row pr0">
+      <div class="n">4</div>
+      <div class="tc">00:12–00:30</div>
+      <div><span class="pill p-r">REP</span></div>
+      <div class="what">Сократить self-intro: оставить только «Здравствуйте, меня зовут Киприн Андрей», всё упоминание компании — вырезать. Одновременно включить <b>TITLE-карточку</b>:
+        <q>Киприн Андрей · эксперт по эндоскопии</q>
+        <span class="note">Герой представлен на экране, без промо оборудования в аудио.</span></div>
+      <div class="src">— (из финала + титр)</div>
+    </div>
+
+    <div class="ops-row pr1">
+      <div class="n">5</div>
+      <div class="tc">~00:45 (новая позиция)</div>
+      <div><span class="pill p-m">MOVE</span></div>
+      <div class="what">Перенести блок «раньше окуляр и толстый / сейчас 9.3 мм» из конца в начало — сразу после HOOK. Становится прямым ответом на страх.
+        <q>Многие пациенты помнят прежнее оборудование… Сейчас эндоскопические системы высокого разрешения.</q></div>
+      <div class="src">— (из финала, [10:42–11:07])</div>
+    </div>
+
+    <div class="ops-row pr1">
+      <div class="n">6</div>
+      <div class="tc">00:30–00:45</div>
+      <div><span class="pill p-r">REP</span></div>
+      <div class="what">Заменить коротышку «ГБР = изжога/отрыжка/кашель» на расширенный дубль.
+        <q>В современном мире всё чаще новые болезни. Одна из них — ГБР, либо рефлюкс болезнь. Это изжога, отрыжка, либо больной может испытывать неукротимый кашель… пациент обращается к терапевту, в дальнейшем направляется к гастроэнтерологу…</q>
+        <span class="note">Даёт 50 сек по Pillar 1 DNA.</span></div>
+      <div class="src"><b>RYA-ZVE1-1377.MP4</b>00:19–01:25<br>→ ~50 сек</div>
+    </div>
+
+    <div class="ops-row pr2">
+      <div class="n">7</div>
+      <div class="tc">00:55–00:56</div>
+      <div><span class="pill p-c">CUT</span></div>
+      <div class="what">Обрезать обрывок <q>В частности.</q></div>
+      <div class="src">—</div>
+    </div>
+
+    <div class="ops-row pr1">
+      <div class="n">8</div>
+      <div class="tc">02:25–02:28</div>
+      <div><span class="pill p-c">CUT</span></div>
+      <div class="what">Удалить повтор.
+        <q>Эндоскоп поворачивается. Эндоскоп поворачивается вправо, поворачивается влево.</q></div>
+      <div class="src">—</div>
+    </div>
+
+    <div class="ops-row pr1">
+      <div class="n">9</div>
+      <div class="tc">02:10–02:38</div>
+      <div><span class="pill p-r">REP</span></div>
+      <div class="what">Заменить блок про управление эндоскопом на чистый дубль.
+        <q>Эндоскоп имеет возможность поворачиваться в четыре стороны. В одну из сторон он может выйти на инверсию и посмотреть в обратную сторону. Поворачивается вверх-вниз и вправо-влево.</q>
+        <span class="note">Без повторов, без «шутки про профессоров».</span></div>
+      <div class="src"><b>RYA-ZVE1-1398.MP4</b>00:04–00:30<br>→ ~26 сек</div>
+    </div>
+
+    <div class="ops-row pr0">
+      <div class="n">10</div>
+      <div class="tc">02:40–02:51</div>
+      <div><span class="pill p-c">CUT</span></div>
+      <div class="what">Удалить.
+        <q>У меня профессоры даже первые пять лет не знали… они удивились, прям уважение появилось.</q>
+        <span class="note">Снисходительно к врачам — ключевой части аудитории.</span></div>
+      <div class="src">—</div>
+    </div>
+
+    <div class="ops-row pr2">
+      <div class="n">11</div>
+      <div class="tc">03:55–03:58</div>
+      <div><span class="pill p-c">CUT</span></div>
+      <div class="what">Обрезать хвост <q>И, конечно, обследование.</q></div>
+      <div class="src">—</div>
+    </div>
+
+    <div class="ops-row pr2">
+      <div class="n">12</div>
+      <div class="tc">04:24–04:25</div>
+      <div><span class="pill p-c">CUT</span></div>
+      <div class="what">Обрезать <q>Инструментарий вставляется в обследование.</q></div>
+      <div class="src">—</div>
+    </div>
+
+    <div class="ops-row pr0">
+      <div class="n">13</div>
+      <div class="tc">~04:43</div>
+      <div><span class="pill p-i">INS</span></div>
+      <div class="what">Вставить блок «путь пациента».
+        <q>Часть пациентов обращаются к врачу… гастроэнтеролог обследует, собирает жалобы. При ГБР назначается медикаментозная терапия и обязательно диета. При соблюдении — большинство жалоб уходит на нет.</q>
+        <span class="note">Ключевой формат YTRF. Подводит к «а если диета и таблетки не помогают?».</span></div>
+      <div class="src"><b>RYA-ZVE1-1377.MP4</b>27:04–27:50<br>→ ~45 сек</div>
+    </div>
+
+    <div class="ops-row pr1">
+      <div class="n">14</div>
+      <div class="tc">~05:28</div>
+      <div><span class="pill p-i">INS</span></div>
+      <div class="what">Короткая практическая вставка.
+        <q>Хорошая новость в том, что можно пройти ФГДС и колоноскопию вместе, за один раз.</q>
+        <span class="note">Снимает барьер «дважды готовиться».</span></div>
+      <div class="src"><b>RYA-ZVE1-1377.MP4</b>20:15–20:28<br>→ ~13 сек</div>
+    </div>
+
+    <div class="ops-row pr0">
+      <div class="n">15</div>
+      <div class="tc">05:32–06:02</div>
+      <div><span class="pill p-c">CUT</span></div>
+      <div class="what">Удалить целиком.
+        <q>Зачем собирать доказательную базу для прокуратуры…</q>
+        <span class="note">Циничный оффтопик.</span></div>
+      <div class="src">—</div>
+    </div>
+
+    <div class="ops-row pr0">
+      <div class="n">16</div>
+      <div class="tc">07:05–07:15</div>
+      <div><span class="pill p-c">CUT</span></div>
+      <div class="what">Удалить промо-вставку про оборудование.
+        <q>Эндоскопическая система SonoScape имеет возможность фотодокументации, сохранения видео на жёсткий диск…</q>
+        <span class="note">Рекламный фрагмент. Не несёт ценности для зрителя-пациента.</span></div>
+      <div class="src">—</div>
+    </div>
+
+    <div class="ops-row pr1">
+      <div class="n">17</div>
+      <div class="tc">~08:44</div>
+      <div><span class="pill p-i">INS</span></div>
+      <div class="what">Расширить блок про хромоэндоскопию.
+        <q>Четыре светодиода: белый, красный, синий, фиолетовый. Разная длина волны проникает на разную глубину. Режимы света SFI и VIST позволяют увидеть патологию под слизистым слоем.</q>
+        <span class="note">Для пациентов — «врач видит то, что обычным светом не видно». Для врачей — конкретика.</span></div>
+      <div class="src"><b>RYA-ZVE1-1406.MP4</b>00:17–01:29<br>→ ~30 сек</div>
+    </div>
+
+    <div class="ops-row pr0">
+      <div class="n">18</div>
+      <div class="tc">~09:04</div>
+      <div><span class="pill p-i">INS</span></div>
+      <div class="what">Мостик от героя к теме лечения.
+        <q>Хирургические операции для лечения ГБР на данный момент не являются стандартом. Они больше носят рекомендательный характер. То есть это не является оперативным вмешательством таким массовым, как бы хотелось бы.</q>
+        <span class="note">Сам герой подводит к «есть новое решение» — без закадрового голоса.</span></div>
+      <div class="src"><b>RYA-ZVE1-1378.MP4</b>02:33–02:54<br>→ ~21 сек</div>
+    </div>
+
+    <div class="ops-row pr0">
+      <div class="n">19</div>
+      <div class="tc">~09:25</div>
+      <div><span class="pill p-t">TITLE</span></div>
+      <div class="what">Полноэкранная title-карточка (8–10 сек), без озвучки:
+        <q>Подробнее про имплант «Рефлюкс Контроль» — в отдельных видео канала</q>
+        <span class="note">Связка с основным продуктом канала остаётся визуальной.</span></div>
+      <div class="src">— (титр)</div>
+    </div>
+
+    <div class="ops-row pr0">
+      <div class="n">20</div>
+      <div class="tc">09:19–10:03</div>
+      <div><span class="pill p-r">REP</span></div>
+      <div class="what">Заменить абстрактную лапароскопию на дубль, где она ПРЯМО привязана к ГБР.
+        <q>В определённых случаях необходимо эту болезнь лечить уже хирургическим методом… Лапароскопическая система позволяет сделать минимальные разрезы для предотвращения заброса кислого содержимого в пищевод.</q>
+        <span class="note">В финале сейчас контекст «операция при рефлюксе» потерян.</span></div>
+      <div class="src"><b>RYA-ZVE1-1378.MP4</b>03:15–04:14<br>→ ~59 сек</div>
+    </div>
+
+    <div class="ops-row pr2">
+      <div class="n">21</div>
+      <div class="tc">10:24–10:42</div>
+      <div><span class="pill p-c">CUT</span></div>
+      <div class="what">Вырезать B2B-аргумент.
+        <q>…для дальнейших докладов, для демонстраций клинических случаев, для обучения молодых специалистов.</q>
+        <span class="note">Не ценно для пациентской аудитории.</span></div>
+      <div class="src">—</div>
+    </div>
+
+    <div class="ops-row pr0">
+      <div class="n">22</div>
+      <div class="tc">11:07–11:30</div>
+      <div><span class="pill p-c">CUT</span></div>
+      <div class="what">Удалить outro с представлением компании.
+        <q>Мы находимся в офисе компании SonoScape… это представительство SonoScape MediCorp в России…</q>
+        <span class="note">Чистое промо, не несёт ценности для зрителя.</span></div>
+      <div class="src">—</div>
+    </div>
+
+    <div class="ops-row pr0">
+      <div class="n">23</div>
+      <div class="tc">конец (вместо старого outro)</div>
+      <div><span class="pill p-t">TITLE</span></div>
+      <div class="what">Outro — три title-карточки подряд поверх существующего нейтрального B-roll (без озвучки, 5–6 сек каждая). См. тексты карточек ниже в блоке «Title-карточки».</div>
+      <div class="src">— (титры)</div>
+    </div>
+
+    <div class="ops-row pr2">
+      <div class="n">24</div>
+      <div class="tc">+20 сек в конце</div>
+      <div><span class="pill p-i">INS</span></div>
+      <div class="what">Стандартный YouTube endscreen (20 сек) с кнопкой подписки и плейлистом. B-roll на выбор — спокойный план.</div>
+      <div class="src">— (endscreen assets)</div>
+    </div>
+
+  </div>
+
+  <div class="warn-box">
+    <b>Контроль длительности.</b> Итого: текущие <b>11:30</b> − вырезки (~90 сек) + вставки из source (~185 сек) + title-карточки (~35 сек) = <b>≈ 13:10</b>. Если нужен ровно <b>12:00</b> — дополнительно сократить блок «История эндоскопии» [06:02–07:05] на 20–30 сек и блок про гонку разрешений [07:15–07:47] на 10–15 сек.
+  </div>
+</div>
+
+<!-- TITLE CARDS -->
+<div class="section">
+  <div class="section-hdr"><span class="section-title">Title-карточки</span><span class="section-sub">текст для экранных вставок без закадрового голоса</span></div>
+  <div class="tcs">
+    <div class="tcard">
+      <div class="tcard-t">Подробнее про имплант<br>«Рефлюкс Контроль»</div>
+      <div class="tcard-s">— в отдельных видео канала</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-t">Изжога чаще<br>двух раз в неделю?</div>
+      <div class="tcard-s">не ждите 40 лет — запишитесь на ФГДС</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-t">Можно ли вылечить<br>рефлюкс без таблеток?</div>
+      <div class="tcard-s">подписывайтесь на «Рефлюкс Контроль»</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h4>Шрифт и цвета титров</h4>
+    <p>Использовать DNA канала: Raleway 700–900, фон <code>#0A1520</code>, акцент <code>#01E8AB</code> для ключевых слов, <code>#29A6CB</code> для подзаголовков. Анимация — fade-in / fade-out, без движения камеры.</p>
+  </div>
+</div>
+
+<!-- SOURCE POOL -->
+<div class="section">
+  <div class="section-hdr"><span class="section-title">Пул исходников</span><span class="section-sub">откуда берём вставки</span></div>
+  <div class="sp">
+    <div class="sp-item">
+      <div class="f">01_Andrey_Kiprin_talk/RYA-ZVE1-1377.MP4</div>
+      <div class="d">40:42 · основное интервью</div>
+      <div class="t">00:19–01:25 · 20:15–20:28<br>26:22–26:44 · 27:04–27:50 · 28:24–29:30</div>
+    </div>
+    <div class="sp-item">
+      <div class="f">01_Andrey_Kiprin_talk/RYA-ZVE1-1378.MP4</div>
+      <div class="d">09:00 · лапароскопия + self-intro</div>
+      <div class="t">02:33–02:54 · 03:15–04:14</div>
+    </div>
+    <div class="sp-item">
+      <div class="f">02_endoscope_demo/RYA-ZVE1-1398.MP4</div>
+      <div class="d">00:33 · B-roll «повороты эндоскопа»</div>
+      <div class="t">00:04–00:30</div>
+    </div>
+    <div class="sp-item">
+      <div class="f">02_endoscope_demo/RYA-ZVE1-1406.MP4</div>
+      <div class="d">03:34 · хромоэндоскопия</div>
+      <div class="t">00:17–01:29</div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CHECK -->
+<div class="section">
+  <div class="section-hdr"><span class="section-title">Финальный чек перед выгрузкой</span></div>
+  <div class="card">
+    <ol style="margin-left:20px;line-height:1.9">
+      <li>Пройти все 24 операции сверху вниз.</li>
+      <li>В новом монтаже нет ни одной закадровой реплики, которой не было в исходниках.</li>
+      <li>В монтаже нет блоков с названием компании SonoScape (оставить только визуальную identification героя через on-screen титр).</li>
+      <li>Связка с «Рефлюкс Контроль» присутствует один раз — как title-карточка на ~09:25.</li>
+      <li>Outro — три title-карточки + 20-сек endscreen.</li>
+      <li>Длительность финала 12:00–13:15.</li>
+      <li>Звук на склейках без щелчков.</li>
+      <li>Экспорт с тем же битрейтом/разрешением, что в текущем финале. Имя файла: <code>YTRF03_Andrey_Kiprin_Endoscopy_v2.mp4</code>.</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  powered by <a href="https://rya.ae/" target="_blank" style="color:var(--white);font-weight:700;text-decoration:none">RYA.AE</a>
+  <div class="footer-contacts">
+    <span class="footer-name">Роман Сергеев</span> · Продюсер · R.Y.A Media Lab FZE<br>
+    <a href="https://t.me/romansergeev" target="_blank">Telegram</a>·
+    <a href="https://wa.me/971569399953" target="_blank">WhatsApp</a>·
+    <a href="mailto:rs@rya.ae">rs@rya.ae</a>·
+    <a href="https://rya.ae/" target="_blank">rya.ae</a>
+  </div>
+  <div style="margin-top:14px;font-size:11px;opacity:.6">YTRF03 Review · 2026-04-20 · <a href="../../" style="color:var(--muted)">← назад к YTRF Guideline</a></div>
+</div>
+
+<script>
+function setDubaiDate(){var d=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Dubai'}));var m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];var hh=String(d.getHours()).padStart(2,'0');var mm=String(d.getMinutes()).padStart(2,'0');document.querySelectorAll('[id=hdr-date]').forEach(function(el){el.textContent=d.getDate()+' '+m[d.getMonth()]+' '+d.getFullYear()+' '+hh+':'+mm})}
+setDubaiDate()
+</script>
+
+</body>
+</html>

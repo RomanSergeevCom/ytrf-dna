@@ -1,0 +1,4 @@
+# Large media files — kept locally, not committed
+videos/**/*.mp4
+videos/**/*.mov
+.DS_Store
